@@ -1,0 +1,21 @@
+body{background-color:silver;margin:0}
+a{color:white}
+dt{font-weight:bold}
+footer{background-color:darkgray;color:lightblack; padding:20px;margin-top:20px; text-align:center}
+header{
+	 top:0;
+	 color:white;
+}
+.header-banner{
+	display:flex;
+	height:200px;
+	background-color:#f0339a;
+ }
+.header-bottom{
+	margin:auto;
+	width:0;
+	height:0;
+	border-left:50px solid transparent;
+	border-right:50px solid transparent;
+	border-top:50px solid #f0339a;
+	}
