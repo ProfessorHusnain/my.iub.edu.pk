@@ -3,7 +3,7 @@ body{background-color:silver;margin:0}
 .card{background-color:black;color:white;width:700px;height:400px;margin:auto;border-radius:50px;margin-top:50px}
 .card-items{float:left;margin-top:50px;margin-left:15px;}
 .card-img{display:flex;float:right;height:400px;}
-a{color:white}
+a{color:#f0339a}
 dt{font-weight:bold}
 footer{background-color:darkgray;color:lightblack; padding:20px;margin-top:20px; text-align:center}
 header{
