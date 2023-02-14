@@ -1,0 +1,27 @@
+table{
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top:5%;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid black;
+    border-collapse: collapse;
+    font-size: large;
+}
+.tableCaption{
+    font-weight: bold;
+    font-size:40px;
+}
+.HeadingRow th{
+padding: 10px;
+}
+th{
+padding-top: 5px;
+padding-bottom: 5px;
+}
+.firstRow #cellHeading{
+    color: aqua;text-align: left; font-size: 25px;
+}
+.firstRow #Office {background-color: #ffbd00;color:#ff2100;}
+.firstRow #FirstSubjectThree{background-color: #ff0000;text-align: center;}
+.firstRow #OfficeHours{width: 50px;background-color: #ffbd00;color: #ff2100;}
+.firstRow #FirstSubjectFour{background-color: #f961e1;text-align: center; padding: 5px;}
