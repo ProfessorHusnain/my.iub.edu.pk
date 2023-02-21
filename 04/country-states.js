@@ -38,10 +38,12 @@ let user_country_code = "PK";
         let country_code = document.getElementById("country").value;
         let states = states_list[country_code];
         // invalid country code or no states add textbox
+
         if(!states){
             state_code_id.innerHTML = text_box;
             return;
         }
+         
         let option = '';
         if (states.length > 0) {
             option = '<select id="state" class="my_form-control">\n';

@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>SoftShelter</title>
   <link rel="stylesheet" href="./style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
     integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog=="
@@ -23,42 +23,73 @@
     <div class="bubble"></div>
     <div class="bubble"></div>
     <div class="bubble"></div>
+    <!--Start Of Form-->
     <div class="form-container">
       <div class="progress">
         <div class="progress-bar"></div>
       </div>
-      <button class="startup-btn"><i class="fas fa-pencil-alt"></i>Start</button>
-      <form id="form1" class="form">
-
+      <button class="startup-btn" ><i class="fas fa-pencil-alt"></i>Start</button>
+      <form id="form1" class="form" action="/">
+        <!--This is for protection against crsf attack-->
+        <input type="hidden" value="11-22-33-44-55-66-77-88-99-">
         <div class="form-group">
-          <label for="firstName">
+          <div class="firstnameBox">
+          <label for="firstName" >
             <input type="text" id="firstName" name="firstName" class="my_form-control" minlength="1" required>
             <small class="my_place">FirstName</small>
           </label>
-          <span id="fError" class="hide" style="font-size: 12px;color: red;"></span>
+          <div class="error-alert">
+            <div class="box">
+              <div class="arrow"></div>
+              <span id="error" class="error-message"></span>
+            </div>
+          </div>
+          </div>
         </div>
         <div class="form-group">
-          <label for="lastName">
+          <div class="lastnameBox"> 
+          <label for="lastName" id="lastNameL">
             <input type="text" id="lastName" name="lastName" class="my_form-control" minlength="1" required>
             <small class="my_place">LastName</small>
           </label>
-          <span id="lastError" class="hide" style="font-size: 12px;color: red;"></span>
+
+          <div class="error-alert">
+            <div class="box">
+              <div class="arrow"></div>
+              <span id="error" class="error-message"></span>
+            </div>
+          </div>
         </div>
-        <br>
+        </div>
+    
         <div class="form-group">
+
+          <div class="emailBox"> 
           <label for="email">
             <input type="email" id="email" name="email" class="my_form-control" required>
             <small class="my_place">Email</small>
-
-          </label>
-          <span id="eError" class="hide" style="font-size: 10px;color: red;"></span>
+           </label>
+           <div class="error-alert">
+            <div class="box">
+              <div class="arrow"></div>
+              <span id="error" class="error-message"></span>
+            </div>
+          </div>
         </div>
+      </div>
         <div class="form-group">
+         <div class="phoneBox">
           <label for="phone">
             <input type="tel" id="phone" name="phone" class="my_form-control" required>
             <small class="my_place" style="top:0;margin-left: 5px;">Phone</small>
           </label>
-          <span id="phError" class="hide" style="font-size: 12px;color: red;"></span>
+          <div class="error-alert">
+            <div class="box">
+              <div class="arrow"></div>
+              <span id="error" class="error-message"></span>
+            </div>
+          </div>
+         </div>
         </div>
 
         <fieldset class="gender-container">
@@ -77,10 +108,16 @@
               <SPAN>Others</SPAN>
             </label>
           </div>
-          <span id="genError" class="hide" style="font-size: 12px;color: red;"></span>
+          <div class="error-alert">
+            <div class="box">
+              <div class="arrow"></div>
+              <span id="error" class="error-message"></span>
+            </div>
+          </div>
         </fieldset>
 
-        <button class="next-btn" type="button">Next</button>
+        <input class="rest-btn" type="reset" style="margin-left: 30%;" value="Rest Details">
+        <input class="next-btn" type="button" value="Next">
       </form>
 
       <form id="form2" class="form">
@@ -90,79 +127,139 @@
             <option class="my_place">select country</option>
           </select>
         </div>
-        <div style="margin-top: 15PX;">
+        <div class="stateBox" style="margin-top: 15PX;">
           <label for="state" style="color:#0073ff;">State</label>
           <span id="state-code"><input type="text" id="state"></span>
+
+          <div class="error-alert">
+            <div class="box">
+              <div class="arrow"></div>
+              <span id="error" class="error-message"></span>
+            </div>
+          </div>
+          
         </div>
 
         <div class="form-group">
+          <div class="addressBox">
           <label for="Address">
             <input type="text" id="Address" name="Address" class="my_form-control" required>
             <small class="my_place">Address</small>
           </label>
-          <span id="addressError" class="hide" style="font-size: 12px;color: red;"></span>
+          <div class="error-alert">
+            <div class="box">
+              <div class="arrow"></div>
+              <span id="error" class="error-message"></span>
+            </div>
+          </div>
+        </div>
         </div>
         <div style="display: flex; width: 100%;">
           <div class="form-group">
+            <div class="streetBox"> 
             <label for="street">
               <input type="text" id="street" class="my_form-control" name="street" required>
               <small class="my_place">Street</small>
             </label>
-            <span id="streetError" class="hide" style="font-size: 12px;color: red;"></span>
+            <div class="error-alert">
+              <div class="box">
+                <div class="arrow"></div>
+                <span id="error" class="error-message"></span>
+              </div>
+            </div>
+            </div>
           </div>
           <div class="form-group" style="margin-left: 15px;">
+            <div class="zipBox"> 
             <label for="zip-code">
               <input type="number" id="zip-code" class="my_form-control" name="zipCode" required>
               <small class="my_place">Zip Code</small>
             </label>
-            <span id="zipError" class="hide" style="font-size: 12px;color: red;"></span>
+            <div class="error-alert">
+              <div class="box">
+                <div class="arrow"></div>
+                <span id="error" class="error-message"></span>
+              </div>
+            </div>
+            </div>
           </div>
 
         </div>
         <div class="form-group">
+          <div class="birthBox"> 
           <label for="date-of-birth"><small style=" color: #0073ff;font-family:'poppins',sans-serif;margin-top: -6px;margin-left: 5px; position: absolute;">Date Of Birth</small>
             <input type="date" id="date-of-birth" name="date-of-birth" min="1999-01-01" style="cursor: pointer;"
               class="my_form-control" required>
             
           </label>
-          <span id="birthError" class="hide" style="font-size: 12px;color: red;"></span>
+          <div class="error-alert">
+            <div class="box">
+              <div class="arrow"></div>
+              <span id="error" class="error-message"></span>
+            </div>
+          </div>
+          </div>
         </div>
 
         <button class="prev-btn" type="button">Previous</button>
+        <input class="rest-btn" type="reset"  value="Rest Details">
         <button class="next-btn" type="button">Next</button>
       </form>
 
       <form id="form3" class="form">
         <div class="picture-container">
           <div class="picture">
-            <img src="./asset/avatar.png" id="profile" alt="image">
+            <input type="image" src="./asset/avatar.png" id="profile" alt="image">
           </div>
           <div class="image-picker">
             <input type="file" id="taking-image" name="taking-image" accept="image/*">
           </div>
         </div>
           <div class="form-group">
+            <div class="usernameBox"> 
             <label for="username">
               <input type="text" id="username" name="username" class="my_form-control" required>
               <small class="my_place">Username</small>
             </label>
-            <span id="usernameError" class="hide" style="font-size: 12px;color: red;"></span>
+            <div class="error-alert">
+              <div class="box">
+                <div class="arrow"></div>
+                <span id="error" class="error-message"></span>
+              </div>
+            </div>
+            </div>
           </div>
           <div class="form-group">
+            <div class="passwordBox"> 
             <label for="password">
+
               <input type="password" id="password" name="password" class="my_form-control" required>
               <small class="my_place">Passowrd</small>
             </label>
-            <span id="passwordError" class="hide" style="font-size: 12px;color: red;"></span>
+            <div class="error-alert">
+              <div class="box">
+                <div class="arrow"></div>
+                <span id="error" class="error-message"></span>
+              </div>
+            </div>
+            </div>
           </div>
           <div class="form-group">
+            <div class="rePasswordBox"> 
             <label for="rePassword">
               <input type="password" id="rePassword" name="rePassword" class="my_form-control" required>
               <small class="my_place">Verify Password</small>
             </label>
-            <span id="rePasswordError" class="hide" style="font-size: 12px;color: red;"></span>
+            <div class="error-alert">
+              <div class="box">
+                <div class="arrow"></div>
+                <span id="error" class="error-message"></span>
+              </div>
+            </div>
+            </div>
           </div>
           <button class="prev-btn" type="button">Previous</button>
+          <input class="rest-btn" type="reset" value="Rest Details">
           <button class="next-btn" type="button">Next</button>
       </form>
       <form id="form4" class="form" >
@@ -170,6 +267,7 @@
         
         <div class="verification-boxes">
           <label for="phone-otp-1" class="verification-boxes-label">Phone</label>
+          <div class="phoneOtpBox"> 
           <div class="verification-box">
             <input type="text" id="phone-otp-1" maxlength="1">
             <input type="text" id="phone-otp-2" maxlength="1">
@@ -178,8 +276,15 @@
             <input type="text" id="phone-otp-5" maxlength="1">
             <input type="text" id="phone-otp-6" maxlength="1">
           </div>
-          <span id="phoneOtpError" class="hide" style="font-size: 12px;color: red;"></span>
+          <div class="error-alert">
+            <div class="box">
+              <div class="arrow"></div>
+              <span id="error" class="error-message"></span>
+            </div>
+          </div>
+          </div>
           <label for="email-otp-1" class="verification-boxes-label" style="margin-top: 35px;">Mail</label>
+          <div class="mailOtpBox"> 
           <div class="verification-box" style="margin-bottom: 35px;">
          
             <input type="text" id="email-otp-1" maxlength="1">
@@ -189,20 +294,87 @@
             <input type="text" id="email-otp-5" maxlength="1">
             <input type="text" id="email-otp-6" maxlength="1">
           </div>
-          <span id="emailOtpError" class="hide" style="font-size: 12px;color: red;"></span>
+          <div class="error-alert">
+            <div class="box">
+              <div class="arrow"></div>
+              <span id="error" class="error-message"></span>
+            </div>
+          </div>
+          </div>
 
         </div>  
         <button class="prev-btn" type="button">Previous</button>
+        <input class="rest-btn" type="reset"  value="Rest Details">
         <button class="next-btn" type="button">Next</button>
       </form>
       <div class="info">
        <h1 class="logo" style="font-weight: 600; letter-spacing: 0px; ">Congratulations</h1>
        <p>
-        Your Registration Has Been Completed 
+        Your reached at last step 
        </p>
-       <button class="Okay-btn"><i class="fas fa-thumbs-up"></i>Okay</button>
+       <div class="terms">
+        <input type="checkbox" class="termsAndCondition" style="margin-bottom: 20px;">
+       <pre> I have read and agree to  <b>SoftShelter's</b> User Agreement,
+  terms and Privacy Ploicy</pre>
+        </div>
+        <div class="survey">
+          <dl >
+            <dt style="font-weight: 666;">Would you like to conduct survey</dt>
+            <dd>
+              <label for="yes">
+              <input type="radio" name="surveyStatus" id="yes">
+              Yes</label>
+              <label for="no">
+                <input type="radio" name="surveyStatus" id="no">
+                No</label>
+            </dd>
+          </dl>
+          <div class="surveyForm">
+            <label for="long" style="color:#0073ff;margin-bottom: 5px;" >Opinion</label>
+            <textarea name="freeStyle"  id="long" cols="30" rows="10" class="my_form-control"></textarea>
+            <dl>
+              <dt style="color:#0073ff;margin-top: 5px;font-weight: 555;">Rate our Site</dt>
+              <dd style="width: 100;">
+                <div class="ratingValue" style="text-align: right; font-weight: 600;margin-right: 5px; width: 100%; color: #0073ff;" >0 %</div>
+                 <input type="range" id="rating" class="my_form-control" value="0" min="0" max="100" step="10" >
+                
+              </dd>
+            </dl>
+            
+            <dl >
+              <dt style="font-weight: 666;">Would you have any own site just for relationship purpose</dt>
+              <dd>
+                <label for="yes1">
+                <input type="radio" name="url"  id="yes1">
+                Yes</label>
+                <label for="no1">
+                  <input type="radio" name="url" id="no1">
+                  No</label>
+              </dd>
+            </dl>
+ 
+            <div class="form-group">
+              <div class="urlBox">
+              <label for="Address">
+                <input type="url" class="my_form-control" id="site-url" placeholder="https://example.com">
+                
+              </label>
+              <div class="error-alert">
+                <div class="box">
+                  <div class="arrow"></div>
+                  <span id="error" class="error-message"></span>
+                </div>
+              </div>
+            </div>
+            </div>
+       
+          </div>
+        </div>
+       <button class="Okay-btn"  disabled onclick="location.reload()"><i class="fas fa-thumbs-up"></i>Continue</button>
       </div>
+
     </div>
+          <!--End Of Form-->
   </div>
   
 

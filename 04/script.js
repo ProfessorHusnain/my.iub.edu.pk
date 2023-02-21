@@ -16,9 +16,12 @@ const profileImage = document.querySelector("#profile");
 const username = document.querySelector("#username");
 const password = document.querySelector("#password");
 const rePassword = document.querySelector("#rePassword");
+const continueButton = document.querySelector(".Okay-btn");
 const phoneOtpInputs = document.querySelectorAll('#phone-otp-1, #phone-otp-2, #phone-otp-3, #phone-otp-4, #phone-otp-5, #phone-otp-6');
 const emailOtpInputs = document.querySelectorAll('#email-otp-1, #email-otp-2, #email-otp-3, #email-otp-4, #email-otp-5, #email-otp-6');
 const info = document.querySelector(".info");
+const termsAndCondition = document.querySelector(".termsAndCondition");
+const survey = document.querySelector(".survey");
 
 
 const phoneBoxes = document.querySelectorAll('.phone-verification-box');
@@ -70,10 +73,10 @@ nextBtns.forEach((btn, index) => {
         showForm(currentForm + 1);
       } else if (currentForm === 2 && validateThird()) {
         showForm(currentForm + 1);
-      } else if(currentForm===3&&validateFourth()){
+      } else if (currentForm === 3 && validateFourth()) {
         forms[currentForm].classList.remove('active');
-        info.style="visibility:visible;";
-        progress.style="visibility:hidden;"
+        info.style = "visibility:visible;";
+        progress.style = "visibility:hidden;"
       }
     }
 
@@ -95,19 +98,21 @@ function validateFirst() {
   var lastName = document.getElementById("lastName");
   var email = document.getElementById("email");
   var phone = document.getElementById("phone");
-  RestErrorFirst();
+  RestError();
   // Validate name input
 
 
   if (firstName.value === "" || firstName.value === null) {
-    setError(formGroup.querySelector("#fError"), "FirstName is Reqiured");
+
+    setError(document.querySelector(".firstnameBox"), "FirstName is Reqiured");
     firstName.focus();
     return false;
   } else {
 
     for (let i = 0; i < firstName.value.length; i++) {
       if (!isNaN(firstName.value[i])) {
-        setError(formGroup.querySelector("#fError"),
+        //document.querySelector('.firstnameBox #error').style="display: block;";
+        setError(document.querySelector(".firstnameBox"),
           "You can't allow to enter number with name");
         firstName.focus();
         return false;
@@ -117,7 +122,7 @@ function validateFirst() {
 
   if (lastName.value === "") {
 
-    setError(document.querySelector("#lastError"),
+    setError(document.querySelector(".lastnameBox"),
       "lastName is Reqiured");
     lastName.focus();
     return false;
@@ -125,7 +130,7 @@ function validateFirst() {
 
     for (let i = 0; i < lastName.value.length; i++) {
       if (!isNaN(lastName.value[i])) {
-        setError(document.querySelector("#lastError")
+        setError(document.querySelector(".lastnameBox")
           , "You can't alow to enter number with name is Reqiured");
         lastName.focus();
         return false;
@@ -137,14 +142,14 @@ function validateFirst() {
 
   // Validate email input
   if (email.value === "") {
-    setError(document.querySelector("#eError"), "Email field is required");
+    setError(document.querySelector(".emailBox"), "Email field is required");
     email.focus();
     return false;
   } else {
     // Regular expression to validate email format
     var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email.value)) {
-      setError(document.querySelector("#eError"), "Invalid email format");
+      setError(document.querySelector(".emailBox"), "Invalid email format");
       email.focus();
       return false;
     }
@@ -159,12 +164,12 @@ function validateFirst() {
       var mess = phoneErrorMap[errorCode];
       if (errorCode === -99)
         mess = "Too short";
-      setError(document.querySelector("#phError"), mess);
+      setError(document.querySelector(".phoneBox"), mess);
       phoneInputField.focus();
       return false;
     }
   } else {
-    setError(document.querySelector("#phError"), "Phone number is required");
+    setError(document.querySelector(".phoneBox"), "Phone number is required");
   }
   let isGenderSelected = false;
   for (let i = 0; i < genderRadios.length; i++) {
@@ -175,7 +180,7 @@ function validateFirst() {
   }
 
   if (!isGenderSelected) {
-    setError(document.querySelector("#genError"), "Please select your gender.");
+    setError(document.querySelector(".gender-container"), "Please select your gender.");
     return false;
   }
 
@@ -201,49 +206,60 @@ birthDate.addEventListener('click', function () {
 
 
 function validateSecond() {
-  RestErrorSecond();
+  RestError();
+
+  let states_list = country_and_states['states'];
+  let state = document.getElementById("state");
+
+  if (states_list[document.getElementById("country").value].length === 0
+    && state.value === "") {
+    setError(document.querySelector(".stateBox"), "State is required");
+    state.focus();
+    return false;
+
+  }
   if (address.value === "") {
-    setError(document.querySelector("#addressError"), "Address is required");
+    setError(document.querySelector(".addressBox"), "Address is required");
     address.focus();
     return false;
   }
   if (street.value === "") {
-    setError(document.querySelector("#streetError"), "Street is required");
+    setError(document.querySelector(".streetBox"), "Street is required");
     street.focus();
     return false;
   }
 
   if (street.value === "") {
-    setError(document.querySelector("#streetError"), "Street is required");
+    setError(document.querySelector(".streetBox"), "Street is required");
     street.focus();
     return false;
   }
   if (zipCode.value === "" || zipCode.value === "0") {
-    setError(document.querySelector("#zipError"), "zipCode is required for mailing purpose");
+    setError(document.querySelector(".zipBox"), "zipCode is required for mailing purpose");
     zipCode.focus();
     return false;
   }
   if (birthDate.value === "") {
-    setError(document.querySelector("#birthError"), "select date of birth");
+    setError(document.querySelector(".birthBox"), "select date of birth");
     birthDate.focus();
     return false;
   }
   return true;
 }
 function validateThird() {
-  RestErrorThird();
+  RestError();
   if (username.value === "") {
-    setError(document.querySelector("#usernameError"), "username is required");
+    setError(document.querySelector(".usernameBox"), "username is required");
     username.focus();
     return false;
   }
   if (password.value === "") {
-    setError(document.querySelector("#passwordError"), "password is required");
+    setError(document.querySelector(".passwordBox"), "password is required");
     password.focus();
     return false;
   }
   if (password.value != rePassword.value) {
-    setError(document.querySelector("#rePasswordError"), "Password Verification Required");
+    setError(document.querySelector(".rePasswordBox"), "Password Verification Required");
     rePassword.focus();
     return false;
   }
@@ -251,35 +267,34 @@ function validateThird() {
 }
 function validateFourth() {
 
-  RestErrorFourth();
+  RestError();
 
 
-  for(let i=0;i<phoneOtpInputs.length;i++){
+  for (let i = 0; i < phoneOtpInputs.length; i++) {
     if (phoneOtpInputs[i].value === "") {
-      setError(document.querySelector("#phoneOtpError"), "Phone Number Verification Required");
-       return false;
-    }
-  }
-
-  for(let i=0;i<emailOtpInputs.length;i++){
-    if (emailOtpInputs[i].value === "")
-    {
-      setError(document.querySelector("#emailOtpError"), "Email Verification Required");
+      setError(document.querySelector(".phoneOtpBox"), "Phone Number Verification Required");
       return false;
     }
   }
 
- // phoneOtpInputs.forEach((input, index) => {
+  for (let i = 0; i < emailOtpInputs.length; i++) {
+    if (emailOtpInputs[i].value === "") {
+      setError(document.querySelector(".mailOtpBox"), "Email Verification Required");
+      return false;
+    }
+  }
+
+  // phoneOtpInputs.forEach((input, index) => {
   //  console.log("phoneOtpInputs[index].value " + index + " " + phoneOtpInputs[index].value)
-   // if (phoneOtpInputs[index].value === "") {
-     // setError(document.querySelector("#phoneOtpError"), "Phone Number Verification Required");
-       
-    //}
+  // if (phoneOtpInputs[index].value === "") {
+  // setError(document.querySelector("#phoneOtpError"), "Phone Number Verification Required");
+
+  //}
   //});
   //emailOtpInputs.forEach((input, index) => {
-   // console.log("emailOtpInputs[index].value " + index + " " + emailOtpInputs[index].value)
-   
-    //}
+  // console.log("emailOtpInputs[index].value " + index + " " + emailOtpInputs[index].value)
+
+  //}
   //});
 
   return true;
@@ -287,31 +302,13 @@ function validateFourth() {
 
 
 function setError(source, message) {
-  source.innerHTML = message;
-}
-function RestErrorFourth() {
-  document.querySelector("#emailOtpError").innerHTML = "";
-  document.querySelector("#phoneOtpError").innerHTML = "";
-}
-function RestErrorThird() {
-  document.querySelector("#usernameError").innerHTML = "";
-  document.querySelector("#passwordError").innerHTML = "";
-  document.querySelector("#rePasswordError").innerHTML = "";
-}
-function RestErrorSecond() {
-  document.querySelector("#addressError").innerHTML = "";
-  document.querySelector("#streetError").innerHTML = "";
-  document.querySelector("#zipError").innerHTML = "";
-  document.querySelector("#birthError").innerHTML = "";
+  source.querySelector(".error-alert").style = "display: block;";
+  source.querySelector("#error").innerHTML = message;
 }
 
-function RestErrorFirst() {
-  document.querySelector("#fError").innerHTML = "";
-  document.querySelector("#lastError").innerHTML = "";
-  document.querySelector("#eError").innerHTML = "";
-  document.querySelector("#phError").innerHTML = "";
-  document.querySelector("#genError").innerHTML = "";
-
+function RestError() {
+  forms[currentForm].querySelectorAll(".error-alert")
+    .forEach(i => { i.style = "display: none;" });
 }
 imagePicker.addEventListener('change', (event) => {
 
@@ -385,3 +382,46 @@ emailOtpInputs.forEach((input, index) => {
     }
   });
 });
+continueButton.addEventListener("click", () => {
+
+})
+termsAndCondition.addEventListener("click", () => {
+  if (termsAndCondition.checked) {
+    continueButton.disabled = false;
+    survey.style = "display: block;"
+  } else {
+    continueButton.disabled = true;
+    survey.style = "display:none;"
+    document.querySelector("surveyForm").style = "visibility:hidden;";
+
+  }
+})
+document.querySelector("#yes").addEventListener("click", () => {
+
+  document.querySelector(".surveyForm").style = "display:block;";
+})
+document.querySelector("#no").addEventListener("click", () => {
+  document.querySelector(".surveyForm").style = "display:none;";
+})
+document.querySelector("#yes1").addEventListener("click", () => {
+  document.querySelector("#site-url").style = "display: block;";
+})
+document.querySelector("#no1").addEventListener("click", () => {
+  document.querySelector("#site-url").style = "display: none;";
+})
+document.querySelector("#site-url").addEventListener("blur", () => {
+
+  let data1 = document.querySelector("#site-url");
+  let errorDec = document.querySelector(".urlBox");
+  if (data1.value != "" && !(data1.value.startsWith("http://") || data1.value.startsWith("https://"))) {
+    setError(errorDec, "Invalid URL");
+  } else {
+      errorDec.querySelectorAll(".error-alert")
+      .forEach(i => { i.style = "display: none;" });
+  }
+})
+document.querySelector("#rating").addEventListener("change",()=>{
+  let varibale= document.querySelector("#rating").value;
+  varibale=varibale+" %";
+  document.querySelector(".ratingValue").innerHTML=varibale;
+})
