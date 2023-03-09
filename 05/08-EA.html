@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shapes</title>
+    <style>
+         .profile {
+            width: 120px;
+            height: 120px;
+            position: relative;
+            text-align: center;
+            margin: auto;
+            margin-top: 15px;
+        
+        }
+
+        .profile>div {  
+            position: absolute;
+        }
+
+        .frame1 {
+            border-radius: 50%;
+            border: 5px groove #03fcb1f8;
+            width: 110px;
+            height: 110px;
+            animation: rotateclockwise 40s linear infinite;
+            
+        }
+       
+        @keyframes rotateclockwise{
+            from {transform:rotate(0deg);
+                 
+            }
+            to {transform:rotate(360deg);
+               
+            }
+        }
+        @keyframes rotateanticlockwise{
+            from {transform:rotate(360deg);
+                 
+            }
+            to {transform:rotate(0deg);
+               
+            }
+        }
+        .frame2{
+            margin: 3px;
+            border: 7px dashed #54e2dbf8;
+            border-radius: 50%;
+            width: 100px;
+            height: 100px;
+            animation: rotateanticlockwise 40s linear infinite;
+        }
+
+        .picture{
+            border-radius: 50%;
+            margin: 3px;
+            width: 114px;
+            height:114px;
+            background-image: url(./abc.png);
+            background-size: contain;
+        }
+    .rectangle{
+        width: 100px;
+        height: 80px;
+        background-color: rgb(146,162,152);
+        border: 2px solid rgb(108, 121, 112);
+        margin-top: 5px;
+    }
+    .rectangle-circle{
+        margin-left: 35px;
+        width: 100px;
+        height: 80px;
+        border-radius: 10px;
+        background-color: rgb(146,162,152);
+        border: 2px solid rgb(108, 121, 112);
+        margin-top: 5px;
+    }
+    .oval-y-axis{
+        margin-left: 35px;
+        width: 30px;
+        height: 90px;
+        border-radius: 100%;
+        background-color: rgb(146,162,152);
+        border: 2px solid rgb(108, 121, 112);
+    }
+    .oval-x-axis-big{
+        margin-left: 35px;
+        width: 90px;
+        height: 40px;
+        border-radius: 100%;
+        background-color: rgb(146,162,152);
+        border: 2px solid rgb(108, 121, 112);
+       margin-top: 20px;
+    }
+    .oval-x-axis-small{
+        margin-left: 35px;
+        width: 60px;
+        height: 13px;
+        border-radius: 100%;
+        background-color: rgb(146,162,152);
+        border: 2px solid rgb(108, 121, 112);
+       margin-top: 35px;
+    }
+    .circle{
+        width: 80px;
+        height: 80px;
+        background-color: rgb(146,162,152);
+        border: 2px solid rgb(108, 121, 112);
+         border-radius: 100%;
+         margin-top: 10px;
+    }
+    .circle-tier{
+        width: 80px;
+        height: 80px;
+        background-color: rgb(146,162,152);
+        border: 2px solid rgb(108, 121, 112);
+         border-radius: 100%;
+         margin-top: 10px;
+        
+    }
+    .circle-tier  div{
+        width: 40px;
+        height: 40px;
+        background-color: white;
+        border: 2px solid rgb(108, 121, 112);
+        border-radius: 100%;
+        margin: auto;
+        margin-top: 18px;
+    }
+  .rectangle-outer{
+         width: 80px;
+        height: 66px;
+        background-color: rgb(146,162,152);
+        border: 2px solid rgb(108, 121, 112);
+        margin-top: 15px;
+        margin-left: 35px;
+        
+  }
+  .rectangle-outer div{
+         width: 60px;
+        height: 45px;
+        margin: auto; 
+        margin-top: 9px;
+        background-color: white;
+        border: 2px solid rgb(108, 121, 112);
+        
+  }
+  .block-y-axis-1{
+    width: 45px;
+    height: 90px;
+    background-color: rgb(4, 169, 109);
+    border-radius: 20px 5px 0 5px;
+    margin-left: 60px;
+
+  }
+  .block-y-axis-2{
+    width: 50px;
+    height: 90px;
+    background-color: rgb(4, 169, 109);
+    border-radius: 5px 20px 5px 0;
+    margin-left: 15px;
+
+  }
+  .leaf-triangle-1{
+    
+        width: 100px;
+        height: 80px;
+        border-radius: 5px 30px 5px 30px;
+        background-color: rgb(4, 169, 109);
+         
+  }
+  .leaf-triangle-2{
+    
+    width: 110px;
+    height: 80px;
+    border-radius: 30px 5px 30px 5px;
+    background-color: rgb(4, 169, 109);
+    margin-left: 35px;
+     
+}
+.door-triangle-1{
+    width: 100px;
+    height: 80px;
+    border-radius: 5px 25px 15px 2px;
+    background-color: rgb(4, 169, 109);
+    margin-left: 35px;
+}
+
+.door-triangle-2{
+    width: 120px;
+    height: 80px;
+    border-radius: 25px 5px 2px 15px;
+    background-color: rgb(4, 169, 109);
+    margin-left: 35px;
+}
+.shape-container{
+    margin: auto;
+    margin-top: 15px;
+}
+    </style>
+</head>
+<body>
+    <div class="profile">
+        <div class="picture"></div>
+        <div class="frame2"></div>
+        <div class="frame1"></div>
+
+    </div>
+
+    
+    <div style="display: flex;margin-left: 25px;">
+    <div class="rectangle"></div>
+    <div class="rectangle-circle"></div>
+    <div class="oval-y-axis"></div>
+    <div class="oval-x-axis-big"></div>
+    <div class="oval-x-axis-small"></div>
+    </div>
+    <DIV style="display: flex;margin-left: 25px;">
+        <div class="circle"></div>
+        <div style="margin-left: 60px;">
+            <div class="circle-tier">
+                <div></div>
+            </div>
+        </div>
+        <div class="rectangle-outer">
+            <div></div>
+        </div>
+        <div class="block-y-axis-1"></div>
+        <div class="block-y-axis-2"></div>
+    </DIV>
+    <div style="display: flex;margin-left: 25px;margin-top: 20px;">
+         <div class="leaf-triangle-1"></div>
+         <div class="leaf-triangle-2"></div>
+         <div class="door-triangle-1"></div>
+         <div class="door-triangle-2"></div>
+    </div>
+   
+</body>
+</html>

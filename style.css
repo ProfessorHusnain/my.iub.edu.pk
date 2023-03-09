@@ -1,7 +1,15 @@
 html,body{background-color:silver;margin:0;height:100%}
 a{color:#f0339a}
 dt{font-weight:bold}
-footer{background-color:darkgray;color:lightblack;bottom:0; text-align:center;position:absolute;width:100%;font-size:20px;font-weight:999}
+footer{
+	background-color:darkgray;
+	color:lightblack;
+	bottom:0;
+	 position:relative;
+	  height: 50px; 
+	 width:100%;
+	 font-size:20px;
+	 font-weight:999}
 header{
 	 top:0;
 	 color:white;
@@ -19,4 +27,60 @@ header{
 	border-left:50px solid transparent;
 	border-right:50px solid transparent;
 	border-top:50px solid #f0339a;
+	}
+	.profile {
+		width: 120px;
+		height: 120px;
+		position: relative;
+		text-align: center;
+		margin: auto;
+		margin-top: 15px;
+	
+	}
+
+	.profile>div {  
+		position: absolute;
+	}
+
+	.frame1 {
+		border-radius: 50%;
+		border: 5px groove #03fcb1f8;
+		width: 110px;
+		height: 110px;
+		animation: rotateclockwise 40s linear infinite;
+		
+	}
+   
+	@keyframes rotateclockwise{
+		from {transform:rotate(0deg);
+			 
+		}
+		to {transform:rotate(360deg);
+		   
+		}
+	}
+	@keyframes rotateanticlockwise{
+		from {transform:rotate(360deg);
+			 
+		}
+		to {transform:rotate(0deg);
+		   
+		}
+	}
+	.frame2{
+		margin: 3px;
+		border: 7px dashed #54e2dbf8;
+		border-radius: 50%;
+		width: 100px;
+		height: 100px;
+		animation: rotateanticlockwise 40s linear infinite;
+	}
+
+	.picture{
+		border-radius: 50%;
+		margin: 3px;
+		width: 114px;
+		height:114px;
+		background-image: url(./05/abc.png);
+		background-size: contain;
 	}
